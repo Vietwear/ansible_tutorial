@@ -1,0 +1,9 @@
+- name: Manage Artifactory
+  hosts: tag_Name_puppetmaster_sonarqube
+  remote_user: admin
+  sudo: yes
+  tasks:
+
+  roles:
+
+      - { role: sonar_runner-role, tags: ['sonar-runner'] }

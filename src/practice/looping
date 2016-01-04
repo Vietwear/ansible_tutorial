@@ -1,0 +1,19 @@
+- name: add several users
+  user: name={{ item }} state=present groups=wheel
+  with_items:
+     - testuser1
+     - testuser2
+
+
+- name: add several users
+  user: name={{ item.name }} state=present groups={{ item.groups }}
+  with_items:
+    - { name: 'testuser1', groups: 'wheel' }
+    - { name: 'testuser2', groups: 'root' }
+
+- name: give users access to multiple databases
+  mysql_user: name={{ item[0] }} priv={{ item[1] }}.*:ALL append_privs=yes password=foo
+  with_nested:
+    - [ 'alice', 'bob' ]
+    - [ 'clientdb', 'employeedb', 'providerdb' ]
+

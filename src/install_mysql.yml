@@ -1,0 +1,9 @@
+- name: Manage Artifactory
+  hosts: tag_Name_nexus_svn
+  remote_user: centos
+  sudo: yes
+  tasks:
+
+  roles:
+
+      - { role: mysql, tags: ['mysql'] }

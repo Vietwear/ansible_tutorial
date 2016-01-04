@@ -1,0 +1,12 @@
+- name: Manage Nginx
+  hosts: tag_Name_ubuntu
+  remote_user: ubuntu
+  sudo: yes
+  pre_tasks:
+  - name: when starting
+    raw: date > /home/ubuntu/start.log
+  roles:
+        - { role: nginx, tags: ['nginx'] }
+  post_tasks:
+  - name: when ending
+    raw : date > /home/ubuntu/end.log

@@ -1,0 +1,7 @@
+---
+# tasks file for mysql_1
+- include_vars: password
+
+- include: install_packages
+- include: configure_mysql
+- include: create_blog_db

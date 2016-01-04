@@ -1,0 +1,22 @@
+---
+# vars file for tomcat
+tomcat:
+  appgroup: tomcat
+  appuser: tomcat
+  gid: 5000
+  uid: 5000
+  java:
+    home: '/etc/alternatives/java'
+    opts: '
+      -Duser.timezone=UTC
+  -Dfile.encoding=UTF8
+  -Xmx6g
+  -Xms6g'
+  cataline:
+
+    home: '/usr/local/apache-tomcat-8.0.21/'
+    pid:  '/usr/local/apache-tomcat-8.0.21/temp/tomcat.pid'
+    opts: '-Dcom.sun.management.jmxremote
+           -Dcom.sun.management.jmxremote.port=8082
+     -Dcom.sun.management.jmxremote.authenticate=false
+     -Dcom.sun.management.jmxremote.ssl=false'

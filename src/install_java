@@ -1,0 +1,8 @@
+- name: Configure instance(s)
+  hosts: tag_Name_Jenkins
+  remote_user: centos
+  sudo: yes
+  gather_facts: True
+  roles:
+
+    - oracle-java

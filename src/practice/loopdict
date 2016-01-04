@@ -1,0 +1,11 @@
+---
+- name: Install AWS CLI
+
+
+
+  hosts: localhost
+  group_vars: file1
+  tasks:
+    - name: Print phone records
+      debug: msg="User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})"
+      with_dict: "{{users}}"

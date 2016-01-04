@@ -1,0 +1,4 @@
+- name : "update"
+  command: apt-get update -y
+- name : "Install Nginx packages"
+  command : apt-get install nginx -y

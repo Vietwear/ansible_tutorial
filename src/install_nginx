@@ -1,0 +1,10 @@
+---
+- hosts: tag_Name_Slave1
+  remote_user: ubuntu
+  sudo: yes
+  #host_key_checking = False
+
+  tasks:
+   - user: name=jenkins comment="John Doe" uid=1060 group=admin
+
+

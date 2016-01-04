@@ -1,0 +1,6 @@
+- name: Manage MySQL
+  hosts: tag_Name_ubuntu
+  remote_user: ubuntu
+  sudo: yes
+  roles:
+      - { role: mysql, tags: ['mysql_1'] }

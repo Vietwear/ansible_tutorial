@@ -1,0 +1,13 @@
+- name: Manage Tomcat
+  hosts: tag_Name_Jenkins
+  remote_user: centos
+  sudo: yes
+  roles:
+  - role: openldap_server
+    openldap_server_domain_name: devopsvietnamvisa.com
+    openldap_server_rootpw: passme
+    openldap_server_enable_ssl: true
+    openldap_server_country: US
+    openldap_server_state: TX
+    openldap_server_location: Austin
+    openldap_server_organization: IT

@@ -1,0 +1,10 @@
+- name: Manage Artifactory
+  hosts: tag_Name_Artifactory
+  remote_user: centos
+  sudo: yes
+  tasks:
+
+  roles:
+      - java-role
+      - mysql
+      - { role: artifactory, tags: ['artifacti'] }

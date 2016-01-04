@@ -1,0 +1,5 @@
+---
+# tasks file for tomcat
+- include: install_packages
+- include: create_user
+- include: configure_tomcat

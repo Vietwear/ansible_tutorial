@@ -380,9 +380,7 @@ class AnsibleModule(object):
             self._log_invocation()
 
         # finally, make sure we're in a sane working dir
-        self._set_cwd()
-
-    def load_file_common_arguments(self, params):
+        self._set_cwd(    def load_file_common_arguments(self, params):
         '''
         many modules deal with files, this encapsulates common
         options that the file module accepts such that it is directly

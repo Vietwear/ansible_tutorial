@@ -1,0 +1,9 @@
+- name: Manage Artifactory
+  hosts: tag_Name_Artifactory
+  remote_user: admin
+  sudo: yes
+  tasks:
+
+  roles:
+      - java
+      - { role: sonar_role, tags: ['sonar'] }

@@ -1,0 +1,30 @@
+- name: Setup an EC2 instance
+  hosts: localhost
+  connection: local
+  remote_user: ec2-user
+  tasks:
+    - name: Create an EC2 machine
+      ec2:
+        region: us-east-1
+        key_name: chef
+        instance_type: t2.micro
+        image: ami-60b6c60a
+        wait: yes
+        group: webserver
+        vpc_subnet_id: subnet-d3f4d1f8
+        assign_public_ip: yes
+        instance_tags:
+          Name: Maychu1
+          class: webserver
+          environment: staging
+      register: newmachines
+
+    - name: Wait for SSH to start
+      wait_for:
+        host: "{{ newmachines.instances[0].public_ip }}"
+        port: 22
+        timeout: 600
+      delegate_to: localhost
+
+
+

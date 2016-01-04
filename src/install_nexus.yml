@@ -1,0 +1,9 @@
+- name: Manage Artifactory
+  hosts: tag_Name_nexus
+  remote_user: centos
+  sudo: yes
+  tasks:
+
+  roles:
+      - java-role
+      - { role: nexus-role, tags: ['nexus'] }

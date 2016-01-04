@@ -1,0 +1,6 @@
+- name: Manage Tomcat
+  hosts: tag_Name_ubuntu
+  remote_user: ubuntu
+  sudo: yes
+  roles:
+      - { role: tomcat, tags: ['tomcat'] }
