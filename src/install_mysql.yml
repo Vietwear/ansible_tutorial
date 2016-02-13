@@ -1,9 +1,52 @@
-- name: Manage Artifactory
-  hosts: tag_Name_nexus_svn
-  remote_user: centos
-  sudo: yes
-  tasks:
+# Basic task example
+- name: launch ansible cloudformation example
+  cloudformation:
+    stack_name: "ansible-cloudformation"
+    state: "present"
+    region: "us-east-1"
+    disable_rollback: true
+    template: "files/cloudformation-example.json"
+    template_parameters:
+      KeyName: "jmartin"
+      DiskType: "ephemeral"
+      InstanceType: "m1.small"
+      ClusterSize: 3
+    tags:
+      Stack: "ansible-cloudformation"
 
-  roles:
+# Basic role example
+- name: launch ansible cloudformation example
+  cloudformation:
+    stack_name: "ansible-cloudformation"
+    state: "present"
+    region: "us-east-1"
+    disable_rollback: true
+    template: "roles/cloudformation/files/cloudformation-example.json"
+    template_parameters:
+      KeyName: "jmartin"
+      DiskType: "ephemeral"
+      InstanceType: "m1.small"
+      ClusterSize: 3
+    tags:
+      Stack: "ansible-cloudformation"
 
-      - { role: mysql, tags: ['mysql'] }
+# Removal example
+- name: tear down old deployment
+  cloudformation:
+    stack_name: "ansible-cloudformation-old"
+    state: "absent"
+
+# Use a template from a URL
+- name: launch ansible cloudformation example
+  cloudformation:
+    stack_name="ansible-cloudformation" state=present
+    region=us-east-1 disable_rollback=true
+    template_url=https://s3.amazonaws.com/my-bucket/cloudformation.template
+  args:
+    template_parameters:
+      KeyName: jmartin
+      DiskType: ephemeral
+      InstanceType: m1.small
+      ClusterSize: 3
+    tags:
+      Stack: ansible-cloudformation

@@ -1,0 +1,41 @@
+# roles/deploy_app/tasks/main.yml
+---
+# our war file is
+- name: Deploy war file
+  copy :
+    src: "{{ tomcat.bucket }}/{{ tomcat.war_file }}"
+
+    dest: "{{ tomcat.war_deploy_path }}/{{ tomcat.war_file }}"
+    mode: get
+    overwrite: no
+  register: war_downloaded
+
+- name: Set correct permissions
+  file:
+    path: "{{ war_deploy_path }}/{{ war_file }}"
+    owner: tomcat
+    group: tomcat
+  when: war_downloaded.changed
+  register: war_deployed
+
+- name: Restart tomcat
+  service:
+    name: tomcat8
+    state: restarted
+  when: war_deployed.changed
+
+# here we cheat a little. The sample.war I'm deploying contains an index.html that we want to edit. We just wait untill the war is unpacked and the file is available
+- name: Wait until war is deployed
+  wait_for:
+    path: "{{ war_deploy_path }}/{{ app_name }}/index.html"
+
+- name: Edit index file
+  lineinfile:
+    dest: "{{ war_deploy_path }}/{{ app_name }}/index.html"
+    regexp: '^<title>Sample "Hello, World" Application</title>'
+    line: '<title>Sample "Hello, from cloudar" Application</title>'
+  lineinfile:
+    dest: "{{ war_deploy_path }}/{{ app_name }}/index.html"
+    regexp: '^<h1>Sample "Hello, World" Application</h1>'
+    line: '<h1>Sample "Hello, from cloudar" Application</h1>'
+  when: war_deployed.changed

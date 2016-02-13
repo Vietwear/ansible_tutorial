@@ -2,6 +2,52 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/docker-ci-tool-stack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-cloudwatch-alarms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-cloudwatch-metrics" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-elb-deploy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-elk" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-examples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-for-aws" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-lint" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-nagios" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-playbook-sensu" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-playbooks" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-plivo-example" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-puppetmaster" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-slb-tomcat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-tomcat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ansible-tomcat-8" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/apache-role" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/artifactory" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/aws-developer-fundamentals" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/aws-system-administration-resources" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/dataxu" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/elk" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/epel-role" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/examples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github-pr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/java-role" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/metrics_monitor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/mysql-role" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/nagios" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/nexus-role" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/openldap_server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/openswan-playbook" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/openvpn" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/oracle-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/rabbitmq" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/redis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/sensu" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/sensu-community-plugins" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/site2site" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/snapshot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/sonar_role" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/sonar_runner-role" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/svn-role" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/troposphere" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/vagrant-elk-box-ansible" vcs="Git" />
   </component>
 </project>

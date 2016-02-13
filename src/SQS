@@ -1,0 +1,16 @@
+# Create SQS queue
+
+- sqs_queue:
+    name: my-queue
+    region: us-east-1
+    default_visibility_timeout: 120
+    message_retention_period: 86400
+    maximum_message_size: 1024
+    delivery_delay: 30
+    receive_message_wait_time: 20
+
+# Delete SQS queue
+- sqs_queue:
+    name: my-queue
+    region: us-east-1
+    state: absent

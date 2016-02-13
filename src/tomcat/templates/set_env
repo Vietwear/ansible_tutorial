@@ -1,4 +1,4 @@
-export CLASSPATH=\
+2export CLASSPATH=\
 $JAVA_HOME/lib/tools.jar:\
 $CATALINA_HOME/bin/commons-daemon.jar:\
 $CATALINA_HOME/bin/bootstrap.jar

@@ -1,0 +1,10 @@
+- name: Manage Tomcat
+  hosts: web1
+  remote_user: vagrant
+  sudo: yes
+  gather_facts: yes
+  tasks:
+
+  roles:
+      - oracle-java
+

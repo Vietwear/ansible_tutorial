@@ -1,6 +1,9 @@
 ---
 # vars file for tomcat
 tomcat:
+  bucket: "/Users/vutrannguyen/Downloads"
+  war_deploy_path: "/opt/apache-tomcat-8.0.30"
+  war_file: "sample.war"
   appgroup: tomcat
   appuser: tomcat
   gid: 5000
@@ -12,11 +15,11 @@ tomcat:
   -Dfile.encoding=UTF8
   -Xmx6g
   -Xms6g'
-  cataline:
+  catalina:
 
-    home: '/usr/local/apache-tomcat-8.0.21/'
-    pid:  '/usr/local/apache-tomcat-8.0.21/temp/tomcat.pid'
+    home: '/opt/apache-tomcat-8.0.30'
+    pid:  '/opt/apache-tomcat-8.0.30/temp/tomcat.pid'
     opts: '-Dcom.sun.management.jmxremote
-           -Dcom.sun.management.jmxremote.port=8082
+           -Dcom.sun.management.jmxremote.port=8080
      -Dcom.sun.management.jmxremote.authenticate=false
      -Dcom.sun.management.jmxremote.ssl=false'

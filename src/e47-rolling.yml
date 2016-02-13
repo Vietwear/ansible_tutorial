@@ -1,0 +1,70 @@
+---
+
+# common
+- hosts: all
+  sudo: yes
+  gather_facts: no
+  remote_user: vagrant
+  tasks:
+
+  - name: install git
+    action: apt name=git state=installed update_cache=yes
+
+# web
+- hosts: web
+  sudo: yes
+  remote_user: vagrant
+  vars:
+    # https://github.com/jweissig/episode-47/releases
+    app_version: release-0.01
+  serial: 1
+
+  pre_tasks:
+
+  - name: disable server in haproxy
+    shell: echo "disable server episode46/{{ inventory_hostname }}" | socat stdio /var/lib/haproxy/stats
+    delegate_to: "{{ item }}"
+    with_items: groups.lb
+
+  tasks:
+
+  roles:
+   - tomcat
+
+
+  handlers:
+
+  - name: restart tomcat
+    action: service name=tomcat state=restarted
+
+  post_tasks:
+
+  - name: enable server in haproxy
+    shell: echo "enable server episode46/{{ inventory_hostname }}" | socat stdio /var/lib/haproxy/stats
+    delegate_to: "{{ item }}"
+    with_items: groups.lb
+
+# lb
+- hosts: lb
+  sudo: yes  
+
+  tasks:
+
+  - name: Download and install haproxy and socat
+    apt: pkg={{ item }} state=latest
+    with_items:
+    - haproxy
+    - socat
+
+  - name: Enable HAProxy
+    lineinfile: dest=/etc/default/haproxy regexp="^ENABLED" line="ENABLED=1"
+    notify: restart haproxy 
+
+  - name: Configure the haproxy cnf file with hosts
+    template: src=templates/haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
+    notify: restart haproxy
+
+  handlers:
+
+  - name: restart haproxy
+    service: name=haproxy state=restarted

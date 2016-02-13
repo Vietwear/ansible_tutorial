@@ -1,0 +1,36 @@
+---
+#
+# Role variables (vars/main.yml):
+#  - service_name:      Tomcat service name
+#  - tomcat.url         Tomcat url
+#  - tomcat.http_port   Tomcat port
+#  - tomcat.actions
+#  - tomcat.prefix:     Tomcat home directory (prefix to webapps, work, conf)
+#  - tomcat.admin_usr:  Manager user name
+#  - tomcat.admin_pass: Manager password
+#
+# Group variables (group_vars/<group_name>.yml):
+#  - app.context_root: Application context root
+#  - app.work_dirname: Name of the work directory of this application
+
+
+- name: Undeploy application
+  uri:
+    url={{ tomcat.url }}:{{ tomcat.http_port }}/{{ tomcat.actions.undeploy }}{{ app.context_root }}
+    user={{ tomcat.admin_usr }}
+    password={{ tomcat.admin_pass }}
+    return_content=yes
+  register: body
+  tags: undeploy
+
+- name: Stop tomcat
+  service: name={{ service_name }} state=stopped
+  sudo: yes
+  tags: undeploy
+
+- name: Clean tomcat cache
+  file: dest={{ item }} state=absent
+  with_items:
+    - "{{ tomcat.prefix }}/work/Catalina/localhost/{{ app.work_dirname }}"
+  tags: undeploy
+

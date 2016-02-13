@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  remote_user: test
+  become: yes
+  gather_facts: no
+  vars_files :
+  - files/awscred.yml
+  tasks:
+  - name: Basic security
+    ec2_group:
+     region: us-east-1
+     name: MyTestAWSGroup
+
+

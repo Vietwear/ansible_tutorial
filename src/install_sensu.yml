@@ -1,0 +1,12 @@
+- name: Install and Config Sensu Server
+  hosts: tag_Name_sensu
+  remote_user: ubuntu
+  sudo: yes
+  tasks:
+
+  roles:
+
+      - rabbitmq
+
+      - redis
+      - sensu
